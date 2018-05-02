@@ -5,14 +5,16 @@ import com.tw.service.EmployeeService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
+import java.util.Set;
 
 @RestController
 public class EmployeeController {
 
+    EmployeeService employeeService = new EmployeeService();
+
     @RequestMapping("/employees")
-    public List<Employee> getEmps() {
-        return new EmployeeService().getEmployees();
+    public Set<Employee> getEmployees() {
+        return employeeService.getEmployees();
     }
 
 }
